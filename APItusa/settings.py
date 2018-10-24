@@ -147,4 +147,5 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 CORS_ORIGIN_ALLOW_ALL = True #Allow all requests
 
 CORS_ALLOW_METHODS = default_methods
+CORS_ALLOW_CREDENTIALS = True
 
