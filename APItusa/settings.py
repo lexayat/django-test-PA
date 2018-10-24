@@ -141,3 +141,7 @@ STATIC_URL = '/static/'
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+#CORS settings
+CORS_ORIGIN_ALLOW_ALL = True #Allow all requests
+
