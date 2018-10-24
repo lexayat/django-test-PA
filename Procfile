@@ -1,0 +1,1 @@
+web: gunicorn APItusa.wsgi --log-file -
