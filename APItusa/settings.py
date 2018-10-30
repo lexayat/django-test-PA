@@ -40,8 +40,16 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'basic',
     'rest_framework',
+    'rest_framework.authtoken',
     'corsheaders',
+    'rest_auth',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'rest_auth.registration',
 ]
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
