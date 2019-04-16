@@ -8,4 +8,6 @@ urlpatterns = [
     path('locations/<int:pk>/',views.LocationDetail.as_view()),
     path('rest-auth/',include('rest_auth.urls')),
     path('rest-auth/registration/', include('rest_auth.registration.urls')),
+    path('tusas/',views.TusasList.as_view()),
+    path('tusas/<int:pk>',views.TusasDetail.as_view()),
 ]
