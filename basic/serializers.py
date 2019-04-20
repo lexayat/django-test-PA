@@ -1,22 +1,5 @@
 from rest_framework import serializers
-from basic.models import Location
 from basic.models import Tusa
-
-class LocationSerializer(serializers.Serializer):
-    id = serializers.IntegerField(read_only=True)
-    lat = serializers.FloatField()
-    lng = serializers.FloatField()
-    secure_radius = serializers.IntegerField()
-
-    def create(self,validated_data):
-        return Location.objects.create(**validated_data)
-
-    def update(self,instance,validated_data):
-        instance.lat = validated_data.get('lat',instance.lat)
-        instance.lng = validated_data.get('lng',instance.lng)
-        instance.secure_radius = validated_data.get('secure_radius',instance.secure_radius)
-        instance.save()
-        return instance
 
 
 class TusaSerializer(serializers.Serializer):
@@ -31,6 +14,8 @@ class TusaSerializer(serializers.Serializer):
     tags = serializers.CharField()
     lat = serializers.FloatField()
     lng = serializers.FloatField()
+    date = serializers.DateTimeField()
+    type = serializers.CharField()
 
     def create(self,validated_data):
         return Tusa.objects.create(**validated_data)
@@ -45,7 +30,8 @@ class TusaSerializer(serializers.Serializer):
         instance.tags = validated_data.get('tags',instance.tags)
         instance.lat = validated_data.get('lat', instance.lat)
         instance.lng = validated_data.get('lng', instance.lng)
+        instance.date = validated_data.get('date',instance.date)
+        instance.type = validated_data.get('type',instance.type)
         instance.save()
         return instance
-
 

@@ -1,3 +1,6 @@
+from datetime import datetime
+from time import timezone
+
 from django.db import models
 from django.contrib.postgres.fields import ArrayField
 
@@ -6,10 +9,7 @@ from django.contrib.postgres.fields import ArrayField
 
 
 
-class Location(models.Model):
-    lat = models.FloatField()
-    lng = models.FloatField()
-    secure_radius = models.IntegerField(default=1000)
+
 
 
 class Tusa(models.Model):
@@ -22,15 +22,19 @@ class Tusa(models.Model):
     mens = models.IntegerField(default=0)
     girls = models.IntegerField(default=0)
     image = models.ImageField()
-
+    date = models.DateTimeField(default=datetime.now(), blank=True)
+    type=models.CharField(max_length=20,default='1')
     tags = models.CharField(max_length=200)
     #tags = models.ArrayField(ArrayField(models.CharField()))
 
+    class Meta:
+        unique_together = ('name',)
+        ordering = ['name']
 
+    def __unicode__(self):
+        return '{0}: {1}'.format(self.name, self.description)
 
-
-
-    #category = models.CharField()
+            #category = models.CharField()
     #alcohol = models.BooleanField(default=True)
     #min_age = models.IntegerField()
     #max_age = models.IntegerField()
