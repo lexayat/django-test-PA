@@ -14,7 +14,7 @@ class TusaSerializer(serializers.Serializer):
     tags = serializers.CharField()
     lat = serializers.FloatField()
     lng = serializers.FloatField()
-    #date = serializers.DateTimeField()
+    date = serializers.DateTimeField()
     type = serializers.CharField()
 
     def create(self,validated_data):
@@ -30,7 +30,7 @@ class TusaSerializer(serializers.Serializer):
         instance.tags = validated_data.get('tags',instance.tags)
         instance.lat = validated_data.get('lat', instance.lat)
         instance.lng = validated_data.get('lng', instance.lng)
-        #instance.date = validated_data.get('date',instance.date)
+        instance.date = validated_data.get('date',instance.date)
         instance.type = validated_data.get('type',instance.type)
         instance.save()
         return instance
