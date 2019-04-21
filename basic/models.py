@@ -1,6 +1,6 @@
 from datetime import datetime
 #from time import timezone
-from django.utils import timezone
+#from django.utils import timezone
 
 from django.db import models
 from django.contrib.postgres.fields import ArrayField
@@ -23,7 +23,7 @@ class Tusa(models.Model):
     mens = models.IntegerField(default=0)
     girls = models.IntegerField(default=0)
     image = models.ImageField()
-    date = models.DateTimeField(default= timezone.now(), blank=True)
+    date = models.DateTimeField(default=datetime(2019, 4 , 27, 10,10,3), blank=True)
     type=models.CharField(max_length=20,default='1')
     tags = models.CharField(max_length=200)
     #tags = models.ArrayField(ArrayField(models.CharField()))
